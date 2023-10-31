@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="public_1dp">1dp</dimen>
+    <dimen name="public_2dp">2dp</dimen>
+    <dimen name="public_3dp">3dp</dimen>
+    <dimen name="public_4dp">4dp</dimen>
+    <dimen name="public_5dp">5dp</dimen>
+    <dimen name="public_6dp">6dp</dimen>
+    <dimen name="public_7dp">7dp</dimen>
+    <dimen name="public_8dp">8dp</dimen>
+    <dimen name="public_9dp">9dp</dimen>
+    <dimen name="public_10dp">10dp</dimen>
+
+    <dimen name="public_1sp">1sp</dimen>
+    <dimen name="public_2sp">2sp</dimen>
+    <dimen name="public_3sp">3sp</dimen>
+    <dimen name="public_4sp">4sp</dimen>
+    <dimen name="public_5sp">5sp</dimen>
+    <dimen name="public_6sp">6sp</dimen>
+    <dimen name="public_7sp">7sp</dimen>
+    <dimen name="public_8sp">8sp</dimen>
+    <dimen name="public_9sp">9sp</dimen>
+    <dimen name="public_10sp">10sp</dimen>
+</resources>

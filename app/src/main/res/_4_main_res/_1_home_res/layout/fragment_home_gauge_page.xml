@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main_home_Viewpager2_RelativeLayout">
+
+    <RelativeLayout
+        android:id="@+id/main_home_Viewpager2_matter_outside_RelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="171dp">
+
+        <RelativeLayout
+            android:id="@+id/main_home_Viewpager2_matter_inside_RelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/main_home_Viewpager2_matter_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CO"
+                android:textSize="34dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/ubuntu_bold"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="42dp"/>
+
+            <TextView
+                android:id="@+id/main_home_Viewpager2_matter_trans_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일산화탄소"
+                android:textSize="12dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_below="@id/main_home_Viewpager2_matter_TextView"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="-8dp"/>
+
+            <TextView
+                android:id="@+id/main_home_Viewpager2_matter_value_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="40dp"
+                android:textColor="@color/status_good_color"
+                android:fontFamily="@font/gothic_a1_700_bold"
+                android:layout_below="@id/main_home_Viewpager2_matter_trans_TextView"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="-8dp"/>
+
+            <TextView
+                android:id="@+id/main_home_Viewpager2_matter_value_unit_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ppm"
+                android:textSize="16dp"
+                android:textColor="#444444"
+                android:fontFamily="@font/ubuntu_regular"
+                android:layout_below="@id/main_home_Viewpager2_matter_value_TextView"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="-15dp"/>
+
+            <TextView
+                android:id="@+id/main_home_Viewpager2_matter_value_status_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"
+                android:textSize="12dp"
+                android:textColor="@color/status_good_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/main_home_Viewpager2_outside_pm_outside_RelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="171dp"
+        android:background="#fff">
+
+        <RelativeLayout
+            android:id="@+id/main_home_Viewpager2_outside_pm_inside_RelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/main_home_ViewPager2_outside_place_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="지역"
+                android:textSize="12dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/main_home_ViewPager2_outside_place_value_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/ubuntu_bold"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/main_home_ViewPager2_outside_place_TextView"/>
+
+            <LinearLayout
+                android:id="@+id/main_home_ViewPager2_outside_graph_LinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom|center_horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="13dp">
+
+                <LinearLayout
+                    android:id="@+id/main_home_ViewPager2_outside_pm_LinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/main_home_ViewPager2_outside_pm_TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="초미세먼지 : "
+                            android:textSize="12dp"
+                            android:textColor="#000"
+                            android:fontFamily="@font/gothic_a1_500_medium"/>
+
+                        <TextView
+                            android:id="@+id/main_home_ViewPager2_outside_pm_value_TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0 ㎍/㎥"
+                            android:textSize="12dp"
+                            android:textColor="#000"
+                            android:fontFamily="@font/gothic_a1_500_medium"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_home_ViewPager2_outside_temp_LinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/main_home_ViewPager2_outside_temp_TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="온도 : "
+                            android:textSize="12dp"
+                            android:textColor="@color/home_matter_temp_color"
+                            android:fontFamily="@font/gothic_a1_500_medium"/>
+
+                        <TextView
+                            android:id="@+id/main_home_ViewPager2_outside_temp_value_TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0.0 ℃"
+                            android:textSize="12dp"
+                            android:textColor="@color/home_matter_temp_color"
+                            android:fontFamily="@font/gothic_a1_500_medium"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_home_ViewPager2_outside_humi_LinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/main_home_ViewPager2_outside_humi_TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="습도 : "
+                            android:textSize="12dp"
+                            android:textColor="@color/home_matter_humi_color"
+                            android:fontFamily="@font/gothic_a1_500_medium"/>
+
+                        <TextView
+                            android:id="@+id/main_home_ViewPager2_outside_humi_value_TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0.0 %"
+                            android:textSize="12dp"
+                            android:textColor="@color/home_matter_humi_color"
+                            android:fontFamily="@font/gothic_a1_500_medium"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

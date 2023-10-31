@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/faq_question_block"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="13dp">
+
+        <ImageButton
+            android:id="@+id/faq_inner_page_back_ImageButton"
+            android:layout_width="37dp"
+            android:layout_height="40dp"
+            android:src="@drawable/faq_back"
+            android:background="#00FFFFFF"
+            android:rotation="180"
+            android:scaleType="fitEnd"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:layout_marginStart="13dp"/>
+
+        <TextView
+            android:id="@+id/faq_inner_page_question_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="앱 관련 내용이 없습니다."
+            android:textColor="#FFF"
+            android:fontFamily="@font/gothic_a1_500_medium"
+            android:textSize="17sp"
+            android:includeFontPadding="false"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp"
+            android:layout_marginEnd="20dp"/>
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/faq_inner_page_answer_NestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/faq_inner_page_answer_LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginEnd="58dp">
+
+            <TextView
+                android:id="@+id/faq_inner_page_answer_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="질문에 대한 답변을 작성해주세요. 텍스트 또는 이미지 형태로 답변이 들어가게 될 예정입니다."
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:textSize="17sp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

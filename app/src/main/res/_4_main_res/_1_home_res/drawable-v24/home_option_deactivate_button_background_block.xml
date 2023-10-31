@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle" >
+            <solid android:color="#922C72FE" />
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="0.4dp"
+        android:bottom="0.4dp"
+        android:left="0.4dp"
+        android:right="0.4dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="19.6dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="0.4dp"
+        android:bottom="0.4dp"
+        android:left="0.4dp"
+        android:right="0.4dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#7D2C72FE" />
+            <corners android:radius="19.6dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="0.8dp"
+        android:bottom="0.8dp"
+        android:left="0.8dp"
+        android:right="0.8dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="19.2dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="0.8dp"
+        android:bottom="0.8dp"
+        android:left="0.8dp"
+        android:right="0.8dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#682C72FE" />
+            <corners android:radius="19.2dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="1.2dp"
+        android:bottom="1.2dp"
+        android:left="1.2dp"
+        android:right="1.2dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="18.8dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="1.2dp"
+        android:bottom="1.2dp"
+        android:left="1.2dp"
+        android:right="1.2dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#552C72FE" />
+            <corners android:radius="18.8dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="1.6dp"
+        android:bottom="1.6dp"
+        android:left="1.6dp"
+        android:right="1.6dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="18.4dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="1.6dp"
+        android:bottom="1.6dp"
+        android:left="1.6dp"
+        android:right="1.6dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#422C72FE" />
+            <corners android:radius="18.4dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="2dp"
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="18dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="2dp"
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#312C72FE" />
+            <corners android:radius="18dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="2.4dp"
+        android:bottom="2.4dp"
+        android:left="2.4dp"
+        android:right="2.4dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="17.6dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="2.4dp"
+        android:bottom="2.4dp"
+        android:left="2.4dp"
+        android:right="2.4dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#202C72FE" />
+            <corners android:radius="17.6dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="2.8dp"
+        android:bottom="2.8dp"
+        android:left="2.8dp"
+        android:right="2.8dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="17.2dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="2.8dp"
+        android:bottom="2.8dp"
+        android:left="2.8dp"
+        android:right="2.8dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#172C72FE" />
+            <corners android:radius="17.2dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="3.2dp"
+        android:bottom="3.2dp"
+        android:left="3.2dp"
+        android:right="3.2dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="16.8dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="3.2dp"
+        android:bottom="3.2dp"
+        android:left="3.2dp"
+        android:right="3.2dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#0E2C72FE" />
+            <corners android:radius="16.8dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="3.6dp"
+        android:bottom="3.6dp"
+        android:left="3.6dp"
+        android:right="3.6dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="16.4dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="3.6dp"
+        android:bottom="3.6dp"
+        android:left="3.6dp"
+        android:right="3.6dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#072C72FE" />
+            <corners android:radius="16.4dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:top="4dp"
+        android:bottom="4dp"
+        android:left="4dp"
+        android:right="46dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/home_option_block_color" />
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+
+</layer-list>

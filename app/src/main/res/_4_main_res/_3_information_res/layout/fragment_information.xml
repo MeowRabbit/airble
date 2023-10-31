@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF"
+    android:paddingBottom="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_marginTop="46dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/information_app_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_1">
+
+                        <LinearLayout
+                            android:id="@+id/information_app_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/information_image_block"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="#FFF"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_1"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/information_app_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="APP 정보 제목 글"
+                                android:textColor="@color/app_main_font_color"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/information_app_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="APP 정보"
+                                android:textColor="@color/app_main_font_color"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/information_airble_manual_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_2">
+
+                        <LinearLayout
+                            android:id="@+id/information_matter_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/information_matter"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/background_dark_blue"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_2"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/information_matter_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="18dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="공기질 정보"
+                                android:textColor="#FFF"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/information_matter_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="공기질(이산화탄소, 일산화탄소, 휘발성 유기 화합물, 초미세먼지)적정수치 및 기본적인 정보를 제공합니다."
+                                android:textColor="#FFF"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="18dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/information_matter_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_1">
+
+                        <LinearLayout
+                            android:id="@+id/information_airble_manual_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/information_airble_manual"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="#FFF"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_1"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/information_airble_manual_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="에어블 사용방법"
+                                android:textColor="@color/app_main_font_color"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/information_airble_manual_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="에어블 작동 방법 및 버튼 안내 등 기본적인 기기 사용법을 안내합니다."
+                                android:textColor="@color/app_main_font_color"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/information_app_manual_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_2">
+
+                        <LinearLayout
+                            android:id="@+id/information_app_manual_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/information_image_block"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/background_dark_blue"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_2"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/information_app_manual_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="APP 사용방법"
+                                android:textColor="#FFF"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/information_app_manual_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="APP의 기본적인 사용법을 안내합니다."
+                                android:textColor="#FFF"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:src="@drawable/app_logo"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="21dp"
+            app:tint="@color/app_main_font_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/information_top_screen"
+            android:layout_marginBottom="4dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

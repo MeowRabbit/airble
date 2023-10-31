@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="setting_ViewPager2_Item_Width">330dp</dimen>
+    <dimen name="setting_ViewPager2_Item_Margin">0dp</dimen>
+</resources>

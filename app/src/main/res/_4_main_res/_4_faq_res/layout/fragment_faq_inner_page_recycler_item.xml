@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginTop="13dp"
+    android:layout_marginBottom="13dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/faq_recycler_item_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="앱 관련 내용이 없습니다."
+        android:textColor="#FFF"
+        android:fontFamily="@font/gothic_a1_500_medium"
+        android:textSize="17sp"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:background="@drawable/faq_question_block"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"/>
+
+</LinearLayout>

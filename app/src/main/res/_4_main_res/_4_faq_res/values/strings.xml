@@ -1,0 +1,96 @@
+<resources>
+    <string-array name="questions">
+        <item>APP_APP 관련 질문 1</item>
+        <item>APP_APP 관련 질문 2</item>
+        <item>APP_APP 관련 질문 3</item>
+        <item>APP_APP 관련 질문 4</item>
+        <item>APP_APP 관련 질문 5</item>
+        <item>APP_APP 관련 질문 6</item>
+        <item>APP_APP 관련 질문 7</item>
+        <item>APP_APP 관련 질문 8</item>
+        <item>APP_APP 관련 질문 9</item>
+        <item>APP_APP 관련 질문 10</item>
+        <item>APP_APP 관련 질문 111111111</item>
+        <item>Device_Device 관련 질문 1</item>
+        <item>Device_Device 관련 질문 2</item>
+        <item>Device_Device 관련 질문 3</item>
+        <item>Device_Device 관련 질문 4</item>
+        <item>Device_Device 관련 질문 5</item>
+        <item>Device_Device 관련 질문 6</item>
+        <item>Device_Device 관련 질문 7</item>
+        <item>Device_Device 관련 질문 8</item>
+        <item>Device_Device 관련 질문 9</item>
+        <item>Device_Device 관련 질문 10</item>
+        <item>Device_Device 관련 질문 22222222222222</item>
+        <item>Purchase_Purchase 관련 질문 1</item>
+        <item>Purchase_Purchase 관련 질문 2</item>
+        <item>Purchase_Purchase 관련 질문 3</item>
+        <item>Purchase_Purchase 관련 질문 4</item>
+        <item>Purchase_Purchase 관련 질문 5</item>
+        <item>Purchase_Purchase 관련 질문 6</item>
+        <item>Purchase_Purchase 관련 질문 7</item>
+        <item>Purchase_Purchase 관련 질문 8</item>
+        <item>Purchase_Purchase 관련 질문 9</item>
+        <item>Purchase_Purchase 관련 질문 10</item>
+        <item>Purchase_Purchase 관련 질문 3333333333333</item>
+        <item>Information_Information 관련 질문 1</item>
+        <item>Information_Information 관련 질문 2</item>
+        <item>Information_Information 관련 질문 3</item>
+        <item>Information_Information 관련 질문 4</item>
+        <item>Information_Information 관련 질문 5</item>
+        <item>Information_Information 관련 질문 6</item>
+        <item>Information_Information 관련 질문 7</item>
+        <item>Information_Information 관련 질문 8</item>
+        <item>Information_Information 관련 질문 9</item>
+        <item>Information_Information 관련 질문 10</item>
+        <item>Information_Information 관련 질문 4444444444</item>
+    </string-array>
+
+    <string-array name="answers">
+        <item>APP_APP 관련 답변 1</item>
+        <item>APP_APP 관련 답변 2</item>
+        <item>APP_APP 관련 답변 3</item>
+        <item>APP_APP 관련 답변 4</item>
+        <item>APP_APP 관련 답변 5</item>
+        <item>APP_APP 관련 답변 6</item>
+        <item>APP_APP 관련 답변 7</item>
+        <item>APP_APP 관련 답변 8</item>
+        <item>APP_APP 관련 답변 9</item>
+        <item>APP_APP 관련 답변 10</item>
+        <item>APP_APP 관련 답변 111111111</item>
+        <item>Device_Device 관련 답변 1</item>
+        <item>Device_Device 관련 답변 2</item>
+        <item>Device_Device 관련 답변 3</item>
+        <item>Device_Device 관련 답변 4</item>
+        <item>Device_Device 관련 답변 5</item>
+        <item>Device_Device 관련 답변 6</item>
+        <item>Device_Device 관련 답변 7</item>
+        <item>Device_Device 관련 답변 8</item>
+        <item>Device_Device 관련 답변 9</item>
+        <item>Device_Device 관련 답변 10</item>
+        <item>Device_Device 관련 답변 22222222222222</item>
+        <item>Purchase_Purchase 관련 답변 1</item>
+        <item>Purchase_Purchase 관련 답변 2</item>
+        <item>Purchase_Purchase 관련 답변 3</item>
+        <item>Purchase_Purchase 관련 답변 4</item>
+        <item>Purchase_Purchase 관련 답변 5</item>
+        <item>Purchase_Purchase 관련 답변 6</item>
+        <item>Purchase_Purchase 관련 답변 7</item>
+        <item>Purchase_Purchase 관련 답변 8</item>
+        <item>Purchase_Purchase 관련 답변 9</item>
+        <item>Purchase_Purchase 관련 답변 10</item>
+        <item>Purchase_Purchase 관련 답변 3333333333333</item>
+        <item>Information_Information 관련 답변 1</item>
+        <item>Information_Information 관련 답변 2</item>
+        <item>Information_Information 관련 답변 3</item>
+        <item>Information_Information 관련 답변 4</item>
+        <item>Information_Information 관련 답변 5</item>
+        <item>Information_Information 관련 답변 6</item>
+        <item>Information_Information 관련 답변 7</item>
+        <item>Information_Information 관련 답변 8</item>
+        <item>Information_Information 관련 답변 9</item>
+        <item>Information_Information 관련 답변 10</item>
+        <item>Information_Information 관련 답변 4444444444</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main._5_setting.dialog.Change_Place_Dialog_Activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/home_option_rename_block_1"
+        android:layout_marginBottom="1dp"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/title_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위치를 변경하시겠습니까?"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="17dp"
+            android:fontFamily="@font/gothic_a1_500_medium"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
+
+        <Button
+            android:id="@+id/find_current_location_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현위치"
+            android:textSize="17dp"
+            android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        <!--com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/place_division_1_TextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="시도"
+            android:padding="20dp"
+            app:boxStrokeColor="#F00"
+            app:hintTextColor="#00F"
+            android:textColorHint="#0F0"
+            app:boxBackgroundColor="#FF0">
+
+            <AutoCompleteTextView
+                android:id="@+id/place_division_1_AutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/place_division_1_TextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="시도"
+            android:padding="10dp"
+            android:textColorHint="#AAA"
+            android:background="@null"
+            app:boxStrokeColor="@color/app_main_font_color"
+            app:hintTextColor="@color/app_main_font_color"
+            app:boxBackgroundColor="#FFF">
+
+            <AutoCompleteTextView
+                android:id="@+id/place_division_1_AutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:editable="false"
+                android:textSize="16dp"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/place_division_2_TextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="시군구"
+            android:padding="10dp"
+            android:textColorHint="#AAA"
+            android:background="@null"
+            app:boxStrokeColor="@color/app_main_font_color"
+            app:hintTextColor="@color/app_main_font_color"
+            app:boxBackgroundColor="#FFF">
+
+            <AutoCompleteTextView
+                android:id="@+id/place_division_2_AutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:editable="false"
+                android:textSize="16dp"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/place_division_3_TextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="읍면동"
+            android:padding="10dp"
+            android:textColorHint="#AAA"
+            android:background="@null"
+            app:boxStrokeColor="@color/app_main_font_color"
+            app:hintTextColor="@color/app_main_font_color"
+            app:boxBackgroundColor="#FFF">
+
+            <AutoCompleteTextView
+                android:id="@+id/place_division_3_AutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:editable="false"
+                android:textSize="16dp"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/main_settings_place_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/main_settings_place_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인"
+                android:textSize="17dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/main_settings_place_cancel_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_3"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/main_settings_place_cancel_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="취소"
+                android:textSize="17dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

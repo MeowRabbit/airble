@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF"
+    android:paddingBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_marginBottom="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="2dp">
+
+            <ImageView
+                android:layout_width="82sp"
+                android:layout_height="24sp"
+                android:src="@drawable/app_logo"
+                android:scaleType="fitCenter"
+                app:tint="@color/app_main_font_color"
+                android:layout_marginEnd="7sp"/>
+
+            <TextView
+                android:id="@+id/title_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="무엇이 궁금하신가요?"
+                android:textColor="@color/app_main_font_color"
+                android:textSize="24sp"
+                android:fontFamily="@font/gothic_a1_700_bold"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="9dp">
+
+        <EditText
+            android:id="@+id/main_faq_search_EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:background="#00FFFFFF"
+            android:hint="검색어를 입력해주세요"
+            android:textColor="@color/app_main_font_color"
+            android:textColorHint="@color/app_main_font_color"
+            android:textSize="15sp"
+            android:fontFamily="@font/dm_sans_medium"
+            android:includeFontPadding="false"
+            android:layout_above="@id/main_faq_search_under_bar_View"
+            android:layout_alignStart="@id/main_faq_search_under_bar_View"
+            android:layout_toStartOf="@id/main_faq_search_ImageButton"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="7dp"/>
+
+        <ImageButton
+            android:id="@+id/main_faq_search_ImageButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/faq_search"
+            android:scaleType="fitCenter"
+            android:background="#00FFFFFF"
+            android:layout_above="@id/main_faq_search_under_bar_View"
+            android:layout_alignEnd="@id/main_faq_search_under_bar_View"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="7dp"/>
+        
+        <View
+            android:id="@+id/main_faq_search_under_bar_View"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/faq_under_bar_block"
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/faq_app_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_1">
+
+                        <LinearLayout
+                            android:id="@+id/faq_app_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/faq_app"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="#FFF"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_1"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/faq_app_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="앱 관련"
+                                android:textColor="@color/app_main_font_color"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/faq_app_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="APP 사용 중 발생한 문제 및 궁금증을 해결해 드립니다."
+                                android:textColor="@color/app_main_font_color"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/faq_device_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_2">
+
+                        <LinearLayout
+                            android:id="@+id/faq_device_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/faq_device"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/background_dark_blue"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_2"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/faq_device_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="18dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="기기 관련"
+                                android:textColor="#FFF"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/faq_device_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="기기 사용 중 발생한 문제 및 궁금증을 해결해 드립니다."
+                                android:textColor="#FFF"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="18dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/faq_purchase_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_1">
+
+                        <LinearLayout
+                            android:id="@+id/faq_purchase_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/information_image_block"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="#FFF"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_1"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/faq_purchase_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="구매 관련"
+                                android:textColor="@color/app_main_font_color"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/faq_purchase_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="구매 중 발생한 문제 및 궁금증을 해결해 드립니다."
+                                android:textColor="@color/app_main_font_color"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="13dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/information_block_shadow"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/faq_information_RelativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/information_block_2">
+
+                        <LinearLayout
+                            android:id="@+id/faq_information_image_LinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="192dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginBottom="28dp"
+                            android:orientation="horizontal"
+                            android:layout_alignParentEnd="true">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="11"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9">
+
+                                <ImageView
+                                    android:layout_width="1000dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/information_matter"
+                                    android:scaleType="fitStart"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="210dp"
+                            android:layout_height="212dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="18dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/background_dark_blue"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/information_matter_block_screen_2"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="vertical"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+
+                            <TextView
+                                android:id="@+id/faq_information_main_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="18dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/gothic_a1_700_bold"
+                                android:text="대기질 정보 관련"
+                                android:textColor="#FFF"
+                                android:textSize="25sp"/>
+
+                            <TextView
+                                android:id="@+id/faq_information_sub_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="정보의 출처 및 궁금증을 해결해 드립니다."
+                                android:textColor="#FFF"
+                                android:lineSpacingExtra="2.5sp"
+                                android:fontFamily="@font/gothic_a1_500_medium"
+                                android:textSize="13sp"
+                                android:layout_marginStart="18dp"
+                                android:layout_marginEnd="13dp"
+                                android:layout_marginBottom="10dp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

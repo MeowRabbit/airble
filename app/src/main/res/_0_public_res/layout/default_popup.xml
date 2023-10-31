@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="._4_main.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:minHeight="120dp"
+        android:orientation="vertical"
+        android:background="@drawable/default_popup_block"
+        android:padding="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/popup_title_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="팝업 메시지 제목"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="17dp"
+            android:fontFamily="@font/gothic_a1_700_bold"/>
+
+        <TextView
+            android:id="@+id/popup_content_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="팝업 메시지 내용\n그그그그\n그그그그\n그그그그\n그그그그\n그그그그\n그그그그"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="13dp"
+            android:fontFamily="@font/gothic_a1_500_medium"
+            android:layout_marginTop="10dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

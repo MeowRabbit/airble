@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="._4_main.MainActivity"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main.MainActivity"
+        android:orientation="vertical"
+        android:background="#FFF">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="109dp">
+
+
+            <LinearLayout
+                android:id="@+id/main_home_device_auto_LinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/main_home_device_auto_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Auto"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/gothic_a1_600_semi_bold"
+                    android:textColor="#AAAAAA"
+                    android:layout_marginEnd="5dp"
+                    android:layout_gravity="center"/>
+
+                <Switch
+                    android:id="@+id/main_home_device_auto_Switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:track="@drawable/home_device_auto_selector"
+                    android:thumb="@drawable/home_device_auto_thumb"
+                    android:layout_gravity="center"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/main_home_device_add_Button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/home_device_add_block"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="20dp"
+                android:text="+"
+                android:textSize="16dp"
+                android:textColor="@color/home_device_select_font_color"
+                android:fontFamily="@font/gothic_a1_700_bold"
+                android:outlineProvider="none"/>
+
+            <TextView
+                android:id="@+id/main_home_device_name_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기기 명 1"
+                android:textSize="16dp"
+                android:textColor="#646464"
+                android:fontFamily="@font/gothic_a1_600_semi_bold"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/main_home_device_connected_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="연결 ON"
+                android:textSize="16dp"
+                android:textColor="#508EF9"
+                android:fontFamily="@font/gothic_a1_600_semi_bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"/>
+
+            <RelativeLayout
+                android:id="@+id/main_home_device_outside_list_LinearLayout"
+                android:layout_width="20dp"
+                android:layout_height="58dp"
+                android:background="@drawable/home_device_select_background_block"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="49dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <HorizontalScrollView
+                    android:id="@+id/main_home_device_list_HorizontalScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginEnd="5dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/main_home_device_inside_list_LinearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="26dp"
+                        android:paddingEnd="5dp"
+                        android:layout_gravity="center_vertical"
+                        tools:ignore="RtlSymmetry">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/home_device_block"
+                            android:text="기기"
+                            android:textSize="13dp"
+                            android:textColor="@color/home_device_select_font_color"
+                            android:fontFamily="@font/gothic_a1_700_bold"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"/>
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/home_device_block"
+                            android:text="기기"
+                            android:textSize="13dp"
+                            android:textColor="@color/home_device_select_font_color"
+                            android:fontFamily="@font/gothic_a1_700_bold"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="7dp"/>
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/home_device_block"
+                            android:text="기기"
+                            android:textSize="13dp"
+                            android:textColor="@color/home_device_select_font_color"
+                            android:fontFamily="@font/gothic_a1_700_bold"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="7dp"/>
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_device_select_background_screen_block"/>
+
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/main_home_device_select_Button"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/home_device_select_block"
+                android:text="장소"
+                android:textSize="13dp"
+                android:textColor="@color/home_device_select_font_color"
+                android:fontFamily="@font/gothic_a1_700_bold"
+                android:outlineProvider="none"/>
+
+
+        </RelativeLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/main_home_device_ViewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/main_home_touch_window_View"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="109dp"
+        android:background="#00A0FFFF"/>
+
+</RelativeLayout>

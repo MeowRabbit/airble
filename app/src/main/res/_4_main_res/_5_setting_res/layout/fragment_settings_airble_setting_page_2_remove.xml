@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main._5_setting."
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/home_option_rename_block_1"
+        android:layout_marginBottom="1dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/title_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="공유를 해제하시겠습니까?"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="17dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/settings_airble_title_sub_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="~ 님이 기기의 데이터를 확인할 수 없으며, 보유한 기기목록에서 기기가 사라집니다."
+            android:textColor="@color/app_main_font_color"
+            android:textSize="15dp"
+            android:layout_margin="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/settings_airble_shared_remove_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/settings_airble_shared_remove_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해제하기"
+                android:textSize="17dp"
+                android:textColor="#FA4949"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/settings_airble_shared_remove_cancel_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_3"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/settings_airble_shared_remove_cancel_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="취소"
+                android:textSize="17dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

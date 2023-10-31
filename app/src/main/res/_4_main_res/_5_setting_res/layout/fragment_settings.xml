@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/settings_devices_ViewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="50dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"/>
+    
+    <Button
+        android:id="@+id/settings_device_add_Button"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/setting_device_add_block"
+        android:text="기기추가"
+        android:textSize="13dp"
+        android:textColor="#FFF"
+        android:fontFamily="@font/gothic_a1_500_medium"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="4dp"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/settings_NestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/settings_LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/settings_alarm_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="알림 설정"
+                android:textSize="15dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/settings_terms_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이용약관"
+                android:textSize="15dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/settings_homepage_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="홈페이지 바로가기"
+                android:textSize="15dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_marginStart="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/settings_logout_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그아웃"
+                android:textSize="15dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/test_reset_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="테스트용 처음부터 다시 데이터 초기화 버튼"
+                android:textSize="15dp"
+                android:textColor="#FA4949"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="5dp"
+                android:padding="5dp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

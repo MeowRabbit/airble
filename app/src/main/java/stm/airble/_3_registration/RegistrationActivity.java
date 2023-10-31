@@ -1,0 +1,762 @@
+package stm.airble._3_registration;
+
+import static stm.airble._0_public.Public_Values.*;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.net.wifi.ScanResult;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.Settings;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import stm.airble.R;
+import stm.airble._4_main.MainActivity;
+import stm.airble._0_public.Airble_Model;
+import stm.airble._0_public.GET_RequestHttpURLConnection;
+import stm.airble._0_public.Loading_ProgressDialog;
+import stm.airble._0_public.Permission_Class;
+import stm.airble._0_public.RequestHttpURLConnection;
+import stm.airble._3_registration.viewpager2.Registration_ViewPagerAdapter;
+import stm.airble._3_registration.viewpager2.dialog.Shared_Dialog_Activity;
+import stm.airble._3_registration.viewpager2.recyclerview.Main_Registration_RecyclerViewAdapter;
+import stm.airble._5_add_airble.dialog.Add_Cancel_Dialog_Activity;
+import stm.airble._5_add_airble.dialog.Add_End_Dialog_Activity;
+
+
+public class RegistrationActivity extends AppCompatActivity {
+
+
+    // public
+    public static Context registration_context;
+    public ViewPager2 viewPager2;
+    public LinearLayout next_btn, before_btn;
+    public boolean connected_wifi = false;
+    public String connected_device_mac = "";
+    public String connected_airble_ssid = "";
+    Loading_ProgressDialog Registration_Loading;
+
+
+    // Page 1
+    public TextView Page1_connect_TextView;
+    public TextView Page1_find_wifi_TextView;
+    public TextView Page1_shared_TextView;
+
+    // Page 2
+    public ArrayList<String> Page2_router_ArrayList;
+    public RecyclerView Page2_router_RecyclerView;
+    public Main_Registration_RecyclerViewAdapter Page2_router_RecyclerViewAdapter;
+
+    // Page 3
+    public String Page3_Select_Router_SSID;
+    public TextView Page3_SSID_TextView;
+    public EditText Page3_PW_EditText;
+    public TextView Page3_connect_TextView;
+    public boolean Setting_NickName_bool;
+
+    // Page 4
+    public EditText Page4_NickName_EditText;
+    public TextView Page4_Add_Device_TextView;
+    ActivityResultLauncher<Intent> add_end_launcher;
+    public boolean is_Add_End;
+
+    public String registration_Mac, registration_NickName;
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registration);
+
+        registration_context = this;
+        Registration_Loading = new Loading_ProgressDialog(registration_context);
+        //Start_Settings(registration_context);
+
+        // 아이디 맞춰주기
+        viewPager2 = findViewById(R.id.registration_ViewPager2);
+        next_btn = findViewById(R.id.registration_next_LinearLayout);
+        before_btn = findViewById(R.id.registration_before_LinearLayout);
+
+        Page_ActivityResultLauncher_Setting();
+        Page_ViewPager_Setting();
+        Page_Move_Setting();
+    }
+
+    // Before, Next Button
+    public void Page_Move_Setting(){
+        before_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewPager2.setCurrentItem( viewPager2.getCurrentItem() - 1 );
+            }
+        });
+
+        next_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewPager2.setCurrentItem( viewPager2.getCurrentItem() + 1 );
+            }
+        });
+    }
+
+    // ViewPager2
+    public void Page_ViewPager_Setting(){
+        viewPager2.setAdapter(new Registration_ViewPagerAdapter(this));
+        viewPager2.setUserInputEnabled(false);
+        viewPager2.setOffscreenPageLimit(4);
+
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                switch (position){
+                    case 0:
+                        before_btn.setVisibility(View.GONE);
+                        next_btn.setVisibility(View.GONE);
+                        Page1_Check_Connect_WIFI();
+                        break;
+
+                    case 1:
+                        before_btn.setVisibility(View.VISIBLE);
+                        next_btn.setVisibility(View.GONE);
+                        WIFI_Scan_Handler handler = new WIFI_Scan_Handler();
+                        Page2_router_ArrayList.clear();
+                        Page2_router_RecyclerViewAdapter.notifyDataSetChanged();
+                        Registration_Loading.Start_Loading();
+                        handler.sendEmptyMessage(1);
+                        break;
+
+                    case 2:
+                        before_btn.setVisibility(View.VISIBLE);
+                        next_btn.setVisibility(View.GONE);
+                        break;
+
+                    case 3:
+                        Page4_NickName_EditText.setHint(connected_airble_ssid);
+                        before_btn.setVisibility(View.GONE);
+                        next_btn.setVisibility(View.GONE);
+                        break;
+
+                }
+            }
+        });
+
+    }
+
+    /**
+     * Page1
+     */
+    public void Page1_Setting(){
+
+        Page1_find_wifi_TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissionCheck();
+            }
+        });
+
+        Page1_shared_TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegistrationActivity.registration_context, Shared_Dialog_Activity.class);
+                shared_launcher.launch(intent);
+            }
+        });
+    }
+
+    void Page1_Check_Connect_WIFI(){
+        Registration_Loading.Start_Loading();
+        APP_Network_Info = APP_Connectivity_Manager.getActiveNetworkInfo();
+
+        Page1_connect_TextView.setText("기기와 Wi-Fi로 연결해주세요");
+
+        try{
+            if(APP_Network_Info.getTypeName().equals("WIFI") && APP_Wifi_Manager.isWifiEnabled()){
+                String ssid = APP_Wifi_Manager.getConnectionInfo().getSSID().trim();
+
+                if (ssid.substring(1, 7).equals("airble") && ssid.length() == 21){
+
+                    String mac = ssid.substring(8,10) + ":" + ssid.substring(10,12) + ":" + ssid.substring(12,14) + ":" + ssid.substring(14,16) + ":" + ssid.substring(16,18) + ":" + ssid.substring(18,20);
+                    connected_airble_ssid = APP_Wifi_Manager.getConnectionInfo().getSSID().substring(1, APP_Wifi_Manager.getConnectionInfo().getSSID().length()-1);
+                    connected_device_mac = mac;
+                    connected_wifi = true;
+                    next_btn.setVisibility(View.VISIBLE);
+                    Page1_connect_TextView.setText("연결된 기기 : airble");
+
+                }else{
+                    connected_wifi = false;
+                    Page1_connect_TextView.setText("에어블 기기가 아닙니다.");
+                    next_btn.setVisibility(View.GONE);
+
+                }
+
+            }else{
+                connected_wifi = false;
+                next_btn.setVisibility(View.GONE);
+            }
+        }catch (Exception e){
+
+        }
+        Registration_Loading.Stop_Loading();
+    }
+
+    /**
+     * Page2
+     */
+    public void Page2_Setting(){
+        Page2_router_ArrayList = new ArrayList<>();
+        Page2_router_RecyclerViewAdapter = new Main_Registration_RecyclerViewAdapter(Page2_router_ArrayList);
+        Page2_router_RecyclerView.setAdapter(Page2_router_RecyclerViewAdapter);
+        Page2_router_RecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+    }
+
+    // WIFI
+    @SuppressLint("NotifyDataSetChanged")
+    public void WIFI_Scan(){
+        @SuppressLint("MissingPermission") List<ScanResult> results = APP_Wifi_Manager.getScanResults();
+
+        // AP정보 수집
+        if(results.size() > 0){
+            boolean ssid_equals_bool;
+            for (final ScanResult result : results) {
+                String SSID = result.SSID;
+                int RSSI = result.level;
+                int Frequency = result.frequency;
+                if(RSSI > - 80 && Frequency_2G.contains(Frequency) && !SSID.equals(connected_airble_ssid)) {
+                    ssid_equals_bool = true;
+                    for(String router_ssid : Page2_router_ArrayList){
+                        if(router_ssid.trim().equals(SSID.trim())){
+                            ssid_equals_bool = false;
+                        }
+                    }
+                    if(ssid_equals_bool){
+                        Page2_router_ArrayList.add(SSID);
+                    }
+                }
+            }
+        }
+        Page2_router_RecyclerViewAdapter.notifyDataSetChanged();
+    }
+
+    class WIFI_Scan_Handler extends Handler {
+        int count = 0;
+
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            switch (msg.what) {
+                case 1:
+                    count++;
+
+                    if(count > 3){
+                        count = 0;
+                        if(Page2_router_ArrayList.size() > 0){
+
+                        }else{
+                            Toast.makeText(getApplicationContext(), "주변 공유기를 찾을 수 없습니다.\n잠시 후에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                        }
+                        Registration_Loading.Stop_Loading();
+                    }else{
+                        WIFI_Scan();
+                        this.sendEmptyMessageDelayed(1, 1000);
+                    }
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Page3
+     */
+    public void Page3_Setting(){
+        Setting_NickName_bool = false;
+        Page3_connect_TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String PW = Page3_PW_EditText.getText().toString().trim();
+                if(PW.equals("")){
+                    Toast.makeText(RegistrationActivity.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Page3_Connect_Router(Page3_PW_EditText.getText().toString().trim());
+                }
+            }
+        });
+
+        Page3_PW_EditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE){
+                    Page3_Connect_Router(Page3_PW_EditText.getText().toString().trim());
+                }
+                return false;
+            }
+        });
+    }
+
+    public void Page3_Connect_Router(String select_wifi_pw){
+        Registration_Loading.Start_Loading();
+
+        try{
+//            String ssid = URLEncoder.encode(connected_airble_ssid, "UTF-8");
+//            String pw = URLEncoder.encode(select_wifi_pw, "UTF-8");
+            String ssid = Page3_Select_Router_SSID;
+            String pw = select_wifi_pw;
+            String server_url = "http://192.168.4.1/system_router?[[0314590405]]" + ssid + "[[0314590405]]" + pw;
+            Log.d("Sans", "server_url = '" + server_url + "'");
+            URL url = new URL(server_url);
+            new Add_Airble_HttpConnection().execute(url);
+        } catch (Exception e) {
+
+        }
+
+    }
+
+
+    /**
+     * Page 4
+     */
+    public void Page4_Setting(){
+        Page4_Add_Device_TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Set_NickName(Page4_NickName_EditText.getText().toString().trim());
+            }
+        });
+
+        Page4_NickName_EditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE){
+                    Set_NickName(Page4_NickName_EditText.getText().toString().trim());
+                }
+                return false;
+            }
+        });
+    }
+
+
+    public void Set_NickName(String nickname){
+        String ssid = "'" + connected_airble_ssid + "'";
+        String mac = ssid.substring(8,10) + ":" + ssid.substring(10,12) + ":" + ssid.substring(12,14) + ":" + ssid.substring(14,16) + ":" + ssid.substring(16,18) + ":" + ssid.substring(18,20);
+
+        if(nickname.length() > 10 || nickname.contains(",")){
+            Start_Popup(RegistrationActivity.this, "사용할 수 없는 이름입니다.", "1~10자리/특수문자 ',' 사용 불가능");
+        }else {
+            if(nickname.equals("")){
+                nickname = connected_airble_ssid;
+            }
+            registration_Mac = mac;
+            registration_NickName = nickname;
+
+            is_Add_End = false;
+            Intent intent = new Intent(registration_context, Add_End_Dialog_Activity.class);
+            add_end_launcher.launch(intent);
+        }
+    }
+
+    // ActivityResult 런처 셋팅
+    ActivityResultLauncher<Intent> permission_launcher;
+    ActivityResultLauncher<Intent> shared_launcher;
+    public void Page_ActivityResultLauncher_Setting(){
+        // 퍼미션 런처 셋팅
+        permission_launcher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    Page1_Check_Connect_WIFI();
+                });
+
+        shared_launcher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if(result.getResultCode() == RESULT_OK){
+                        Registration_Loading.Start_Loading();
+                        try{
+                            String server_url = Server_Domain + "airble_test?num=42&email=" + User_Email;
+                            URL url = new URL(server_url);
+                            Log.d("Sans", "server_url = " + server_url);
+                            new Shared_HttpConnection().execute(url);
+                        } catch (Exception e) {
+                            Registration_Loading.Stop_Loading();
+                        }
+                    }
+                });
+
+        add_end_launcher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if(is_Add_End){
+                        try {
+                            Registration_Loading.Start_Loading();
+                            String server_url = Server_Domain + "airble_test?num=470&mac=" + registration_Mac +
+                                    "&nickname=" + registration_NickName;
+                            URL url = new URL(server_url);
+                            Log.d("Sans", "server_url = " + server_url);
+                            new Set_NickName_HttpConnection().execute(url);
+                        } catch (Exception e) {
+                            Registration_Loading.Stop_Loading();
+                            Toast.makeText(registration_context, "인터넷 연결상태를 확인해 주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    // 퍼미션
+    Permission_Class permission;
+    private void permissionCheck() {
+
+        // 클래스 객체 생성
+        permission = new Permission_Class(RegistrationActivity.this, RegistrationActivity.this);
+
+        // 권한 체크한 후에 리턴이 false일 경우 권한 요청을 해준다.
+        if (!permission.checkPermission()) {
+            permission.requestPermission();
+        } else {
+            permission_launcher.launch(new Intent(Settings.ACTION_WIFI_SETTINGS));
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (permission.permissionResult(requestCode, permissions, grantResults)) {
+            // 성공
+            permission_launcher.launch(new Intent(Settings.ACTION_WIFI_SETTINGS));
+        } else {
+            // 실패
+            Toast.makeText(RegistrationActivity.this, "기기 추가를 위해서 권한 허용이 필요 합니다.", Toast.LENGTH_SHORT).show();
+            Log.d("Sans", "퍼미션 실패");
+
+        }
+    }
+
+    private class Shared_HttpConnection extends AsyncTask<URL, Integer, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+            String data = "";
+            if (urls.length == 0) {
+                return " URL is empty";
+            }
+            try {
+                GET_RequestHttpURLConnection connection = new GET_RequestHttpURLConnection();
+                data = connection.request(urls[0]);
+            } catch (Exception e) {
+                data = e.getMessage();
+            }
+
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String data) {
+            super.onPostExecute(data);
+            if (data != null) { //연결성공
+                Log.d("Sans", "data = " + data);
+                String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
+                //String code = data;
+                switch (code){
+
+                    // Airble 현재 데이터 가져오기
+                    case "S42":
+                    {
+                        try{
+                            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            APP_Airble_Model_Array.clear();
+                            String values[] = data.split(",,");
+                            for(int i = 1; i< values.length; i++){
+                                String value[] = values[i].split(",");
+
+                                Airble_Model airble = new Airble_Model();
+                                airble.setMAC_Address(value[0]);
+                                if(Integer.parseInt(value[1]) == 1){
+                                    airble.setOwner(true);
+                                }else{
+                                    airble.setOwner(false);
+                                }
+                                airble.setSSID(value[3]);
+                                airble.setNick_Name(value[4]);
+                                airble.setUpdate_date(LocalDateTime.parse(value[5].split("\\.")[0], dateTimeFormatter));
+
+                                APP_Airble_Model_Array.add(airble);
+                            }
+
+                        } catch (Exception e) {
+                            Registration_Loading.Stop_Loading();
+                        }
+                        Registration_Loading.Stop_Loading();
+
+                        Intent intent = new Intent(RegistrationActivity.registration_context, MainActivity.class);
+                        RegistrationActivity.registration_context.startActivity(intent);
+                        ((RegistrationActivity)RegistrationActivity.registration_context).finish();
+                        Toast.makeText(RegistrationActivity.registration_context, "기기가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case "E42":{
+                        // 서버 오류
+                        Toast.makeText(RegistrationActivity.registration_context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                        Registration_Loading.Stop_Loading();
+                    }
+                    break;
+
+                    default:{
+                        Toast.makeText(RegistrationActivity.registration_context, "에러코드 : " + code, Toast.LENGTH_SHORT).show();
+                        Registration_Loading.Stop_Loading();
+                    }
+
+                }
+
+            } else {  //연결실패
+                Toast.makeText(RegistrationActivity.registration_context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                Registration_Loading.Stop_Loading();
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(viewPager2.getCurrentItem() == 0){
+            if(Close_App_bool){
+                System_Handler.removeMessages(CLOSE_APP);
+                super.onBackPressed();
+            }else{
+                Toast.makeText(RegistrationActivity.this, "뒤로가기를 한번 더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
+                System_Handler.sendEmptyMessageDelayed(CLOSE_APP, CLOSE_APP_Interval);
+                Close_App_bool = true;
+            }
+        }else if(viewPager2.getCurrentItem() == 3){
+            is_Add_End = false;
+            add_end_launcher.launch(new Intent(registration_context, Add_Cancel_Dialog_Activity.class));
+        }else{
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem()-1);
+        }
+    }
+
+    //서버에 연결하는 코딩
+    private class Add_Airble_HttpConnection extends AsyncTask<URL, Integer, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+            String data = "";
+            if (urls.length == 0) {
+                return " URL is empty";
+            }
+            try {
+                RequestHttpURLConnection connection = new RequestHttpURLConnection();
+                data = connection.request(urls[0]);
+            } catch (Exception e) {
+                data = e.getMessage();
+            }
+
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String data) {
+            super.onPostExecute(data);
+            if (data != null) { //연결성공
+                String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
+                //String code = data;
+                switch (code){
+                    // 라우터 테스트 요청 시작
+                    case "RT0":
+                    case "RT1":
+                    {
+                        try{
+                            String server_url = "http://192.168.4.1/system_router";
+                            URL url = new URL(server_url);
+                            new Add_Airble_HttpConnection().execute(url);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                    break;
+
+                    // 라우터 테스트 실패
+                    case "RT2":
+                    {
+                        Toast.makeText(RegistrationActivity.this, "라우터 연결에 실패하였습니다.\n비밀번호를 확인 해 주세요.", Toast.LENGTH_SHORT).show();
+                        Registration_Loading.Stop_Loading();
+                    }
+                    break;
+
+                    // 라우터 테스트 성공
+                    case "RT3":
+                    {
+                        Toast.makeText(RegistrationActivity.this, "라우터 연결 성공", Toast.LENGTH_SHORT).show();
+                        try{
+                            String server_url = "http://192.168.4.1/add_airble?" + User_Email;
+                            URL url = new URL(server_url);
+                            new Add_Airble_HttpConnection().execute(url);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                    break;
+
+                    case "AA0":
+                    case "AA1":
+                    {
+                        try{
+                            String server_url = "http://192.168.4.1/add_airble";
+                            URL url = new URL(server_url);
+                            new Add_Airble_HttpConnection().execute(url);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                    break;
+                    case "AA2":
+                    {
+                        Toast.makeText(RegistrationActivity.this, "이미 사용자가 존재하는 기기 입니다.\n다른 기기를 추가해 주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                        Registration_Loading.Stop_Loading();
+                    }
+                    break;
+                    case "AA3":
+                    {
+                        //String ssid = APP_Wifi_Manager.getConnectionInfo().getSSID().trim();
+                        //String mac = ssid.substring(8,10) + ":" + ssid.substring(10,12) + ":" + ssid.substring(12,14) + ":" + ssid.substring(14,16) + ":" + ssid.substring(16,18) + ":" + ssid.substring(18,20);
+                        String server_url = "http://192.168.4.1/setting_nickname?" + connected_airble_ssid;
+                        try{
+                            URL url = new URL(server_url);
+                            new Add_Airble_HttpConnection().execute(url);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                    break;
+
+                    case "SN0":
+                    case "SN1":
+                    {
+                        try{
+                            Setting_NickName_bool = true;
+                            String server_url = "http://192.168.4.1/setting_nickname";
+                            URL url = new URL(server_url);
+                            new Add_Airble_HttpConnection().execute(url);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                    break;
+
+                    case "SN2":
+                    {
+                        Toast.makeText(RegistrationActivity.this, "기기와의 연결이 원활하지 않습니다. 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                        Registration_Loading.Stop_Loading();
+                    }
+                    break;
+
+                    case "SN3":
+                    {
+                        Setting_NickName_bool = false;
+                        Toast.makeText(RegistrationActivity.this, "기기가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                        Fragment_Page = 0;
+                        Registration_Loading.Stop_Loading();
+                        viewPager2.setCurrentItem(3);
+                    }
+                    break;
+
+                }
+            } else {  //연결실패
+                if(Setting_NickName_bool){
+                    Setting_NickName_bool = false;
+                    Toast.makeText(RegistrationActivity.this, "기기가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                    //Start_Settings(RegistrationActivity.registration_context);
+                    Fragment_Page = 0;
+                    Registration_Loading.Stop_Loading();
+                    viewPager2.setCurrentItem(3);
+                }else {
+                    Toast.makeText(RegistrationActivity.this, "기기와의 연결상태를 확인 해 주세요.", Toast.LENGTH_SHORT).show();
+                    Registration_Loading.Stop_Loading();
+                }
+            }
+        }
+
+    }
+
+    private class Set_NickName_HttpConnection extends AsyncTask<URL, Integer, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+            String data = "";
+            if (urls.length == 0) {
+                return " URL is empty";
+            }
+            try {
+                GET_RequestHttpURLConnection connection = new GET_RequestHttpURLConnection();
+                data = connection.request(urls[0]);
+            } catch (Exception e) {
+                data = e.getMessage();
+            }
+
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String data) {
+            super.onPostExecute(data);
+            if (data != null) { //연결성공
+                String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
+                switch (code){
+                    // 기존에 저장된 기기 불러오기
+
+                    case "S470":
+                    {
+                        Registration_Loading.Stop_Loading();
+                        Airble_Model airble = new Airble_Model();
+                        airble.setMAC_Address(connected_device_mac);
+                        airble.setNick_Name(registration_NickName);
+                        APP_Airble_Model_Array.add(airble);
+
+                        Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    break;
+
+                    case "F470":
+                    {
+                        Registration_Loading.Stop_Loading();
+                        Toast.makeText(RegistrationActivity.this, "설정에 실패하였습니다. 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                }
+
+            } else {  //연결실패
+                Registration_Loading.Stop_Loading();
+                Toast.makeText(RegistrationActivity.this, "인터넷 연결상태를 확인해 주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/main_frame_area_View"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="94dp"
+        android:layout_marginBottom="60dp"/>
+
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/main_bottom_menu_shadow"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/main_bottom_menu_block"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="3dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:id="@+id/main_home_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:gravity="center|bottom">
+
+            <ImageView
+                android:id="@+id/main_home_ImageView"
+                android:layout_width="70px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/home"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/main_home_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:textSize="11dp"
+                android:textColor="@color/app_main_font_color"
+                android:lineSpacingExtra="0.6dp"
+                android:gravity="center"
+                android:text="홈"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_graph_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:gravity="center|bottom">
+
+            <ImageView
+                android:id="@+id/main_graph_ImageView"
+                android:layout_width="70px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/graph"/>
+
+            <TextView
+                android:id="@+id/main_graph_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:textSize="11dp"
+                android:textColor="@color/app_main_font_color"
+                android:lineSpacingExtra="0.6dp"
+                android:gravity="center"
+                android:text="그래프"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_information_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:gravity="center|bottom">
+
+            <ImageView
+                android:id="@+id/main_information_ImageView"
+                android:layout_width="70px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/information"/>
+
+            <TextView
+                android:id="@+id/main_information_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:textSize="11dp"
+                android:textColor="@color/app_main_font_color"
+                android:lineSpacingExtra="0.6dp"
+                android:gravity="center"
+                android:text="정보"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_faq_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:gravity="center|bottom">
+
+            <ImageView
+                android:id="@+id/main_faq_ImageView"
+                android:layout_width="70px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/faq"/>
+
+            <TextView
+                android:id="@+id/main_faq_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:textSize="11dp"
+                android:textColor="@color/app_main_font_color"
+                android:lineSpacingExtra="0.6dp"
+                android:gravity="center"
+                android:text="FAQ"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_user_settings_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:gravity="center|bottom">
+
+            <ImageView
+                android:id="@+id/main_user_settings_ImageView"
+                android:layout_width="70px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/setting"/>
+
+            <TextView
+                android:id="@+id/main_user_settings_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gothic_a1_500_medium"
+                android:textSize="11dp"
+                android:textColor="@color/app_main_font_color"
+                android:lineSpacingExtra="0.6dp"
+                android:gravity="center"
+                android:text="사용자"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

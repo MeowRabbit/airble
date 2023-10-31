@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp">
+
+    <LinearLayout
+        android:id="@+id/settings_airble_shared_item_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/shared_person_icon"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/settings_airble_shared_item_email_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="qkrrlqja710@gmail.com"
+            android:textSize="17dp"
+            android:textColor="#508EF9"
+            android:fontFamily="@font/gothic_a1_700_bold"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+</LinearLayout>

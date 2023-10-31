@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- APP 알림 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!-- 인터넷 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- WIFI -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/app_icon"
+        android:label="에어블"
+        android:roundIcon="@drawable/app_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <service
+            android:name="._0_public.Background_Alarm_Service"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":alarm_service"></service>
+
+        <receiver android:name="._0_public.Background_BroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="._1_splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
+
+        </activity>
+        <activity android:name="._1_splash.dialog.Join_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._3_registration.RegistrationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="._3_registration.viewpager2.dialog.Shared_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._4_main.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="._4_main._5_setting.dialog.Change_NickName_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._4_main._5_setting.dialog.Change_Volume_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._4_main._5_setting.dialog.Change_Place_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom_2"/>
+        <activity android:name="._4_main._5_setting.dialog.Reset_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._4_main._5_setting.dialog.Remove_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._4_main._5_setting.dialog.Shared_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._4_main._5_setting.dialog.LogOut_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._4_main._5_setting.dialog.Shared_Remove_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._5_add_airble.AddAirbleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="._5_add_airble.dialog.Add_Cancel_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._5_add_airble.dialog.Add_End_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+        <activity android:name="._5_add_airble.dialog.Shared_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+
+        <activity android:name="._0_public.Popup_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
+    </application>
+
+</manifest>

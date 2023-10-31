@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/settings_ViewPager2_RelativeLayout"
+        android:layout_width="167dp"
+        android:layout_height="220dp">
+
+        <LinearLayout
+            android:id="@+id/settings_ViewPager2_device_outside_LinearLayout"
+            android:layout_width="162dp"
+            android:layout_height="162dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/setting_device_outside_block"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/settings_ViewPager2_device_inside_LinearLayout"
+                android:layout_width="152dp"
+                android:layout_height="152dp"
+                android:background="@drawable/setting_device_inside_block"
+                android:gravity="center"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_ViewPager2_device_TextView"
+            android:layout_width="107dp"
+            android:layout_height="107dp"
+            android:text="거실"
+            android:textSize="17dp"
+            android:textColor="@color/app_main_font_color"
+            android:fontFamily="@font/gothic_a1_500_medium"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+
+        <View
+            android:id="@+id/settings_device_rename_View"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/setting_device_rename_block"
+            android:rotation="45"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/settings_ViewPager2_device_outside_LinearLayout"
+            android:layout_marginTop="-18dp"/>
+
+        <View
+            android:id="@+id/settings_device_main_select_View"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/setting_device_main_select_block"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/settings_ViewPager2_device_outside_LinearLayout"
+            android:layout_marginBottom="-18dp"/>
+
+    </RelativeLayout>
+    
+
+</LinearLayout>

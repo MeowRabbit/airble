@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="._3_registration.viewpager2.dialog.Add_End_Dialog_Activity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="103dp"
+        android:orientation="vertical"
+        android:background="@drawable/home_option_rename_block_1"
+        android:layout_marginBottom="1dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/title_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이 장소의 이름이 맞나요?"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="17dp"/>
+
+        <TextView
+            android:id="@+id/nickname_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="airble_123456789012"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="17dp"
+            android:layout_marginTop="10dp"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/registration_end_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/registration_end_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예"
+                android:textSize="17dp"
+                android:textColor="#FA4949"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/registration_end_cancel_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_3"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/registration_end_cancel_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아니요"
+                android:textSize="17dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

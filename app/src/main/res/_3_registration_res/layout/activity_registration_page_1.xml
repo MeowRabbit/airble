@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._3_registration.RegistrationActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="101dp">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/registration_page_1_TextView_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="에어블"
+                    android:textSize="40dp"
+                    android:textColor="#FFF"
+                    android:fontFamily="@font/gothic_a1_700_bold"/>
+                
+                <LinearLayout
+                    android:layout_width="77dp"
+                    android:layout_height="37dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="8.5dp"
+                    android:background="@drawable/registration_page_1_rectangle_block"
+                    android:backgroundTint="#FBD44B">
+                    
+                    <View
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/registration_page_1_rectangle_block"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="2.5dp"/>
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wi-Fi"
+                        android:textSize="30dp"
+                        android:textColor="#FFF"
+                        android:fontFamily="@font/nanum_pen"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ON!"
+                        android:textSize="30dp"
+                        android:textColor="#FFD647"
+                        android:fontFamily="@font/nanum_pen"
+                        android:layout_marginTop="-10dp"/>
+
+                </LinearLayout>
+                
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/registration_page_1_TextView_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기기 연결하기"
+                android:textSize="40dp"
+                 android:textColor="#FFF"
+                android:fontFamily="@font/gothic_a1_700_bold"
+                android:layout_marginTop="-15dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/registration_page_1_TextView_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="에어블 어플과 기기의 연결을 위해 Wi-Fi 를 켜주세요.\nWi-Fi 가 켜진 상태에서 기기를 연결할 수 있어요!"
+            android:textSize="13dp"
+            android:textColor="#FFF"
+            android:fontFamily="@font/gothic_a1_500_medium"
+            android:lineSpacingExtra="4dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="295dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="75dp"
+        android:orientation="vertical"
+        android:background="@drawable/registration_page_1_connect_device_block"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/registration_page_1_TextView_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기기와 Wi-Fi로 연결해주세요"
+            android:textSize="17dp"
+            android:textColor="#508EF9"
+            android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        <TextView
+            android:id="@+id/registration_find_wifi_TextView"
+            android:layout_width="123dp"
+            android:layout_height="26.3dp"
+            android:text="기기 검색"
+            android:textSize="17dp"
+            android:textColor="#FFF"
+            android:fontFamily="@font/gothic_a1_500_medium"
+            android:gravity="center"
+            android:background="@drawable/registration_page_1_connect_device_block"
+            android:backgroundTint="#508EF9"
+            android:layout_marginTop="12dp"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/registration_shared_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="26.3dp"
+            android:text="공유 중인 기기 추가하기"
+            android:textSize="17dp"
+            android:textColor="#FFF"
+            android:fontFamily="@font/gothic_a1_500_medium"
+            android:gravity="center"
+            android:layout_margin="12dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+
+</LinearLayout>

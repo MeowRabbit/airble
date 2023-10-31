@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "201579892271",
+    "project_id": "airble-391706",
+    "storage_bucket": "airble-391706.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201579892271:android:7d1248e6d78be5406c80da",
+        "android_client_info": {
+          "package_name": "stm.airble"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201579892271-j12bujnrmm2gm5tbologcs0bluicv4ar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "stm.airble",
+            "certificate_hash": "e4377c0ffe29aacb6c629eeb9dc72c01a36d46d1"
+          }
+        },
+        {
+          "client_id": "201579892271-tpgj84naejl9q6bfaihbvc0kr7vd0ejp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "stm.airble",
+            "certificate_hash": "172d06afd2695844d71a80d37dd9b94a97ff3e87"
+          }
+        },
+        {
+          "client_id": "201579892271-esne5gccij0aknhjefir95gbvtvs02n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzlf49dXPL4ptIioUprnJ6OMgT1PkTZWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201579892271-esne5gccij0aknhjefir95gbvtvs02n6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

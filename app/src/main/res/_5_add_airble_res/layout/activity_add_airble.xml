@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._5_add_airble.AddAirbleActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#508EF9">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/add_airble_ViewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/add_airble_before_LinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:background="@drawable/add_airble_block"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="19dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="26dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/add_airble_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="이전"
+            android:textSize="14dp"
+            android:fontFamily="@font/gothic_a1_700_bold"
+            android:textColor="@color/app_main_font_color"
+            android:includeFontPadding="true"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/add_airble_next_LinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:background="@drawable/add_airble_block"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="19dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="다음"
+            android:textSize="14dp"
+            android:fontFamily="@font/gothic_a1_700_bold"
+            android:textColor="@color/app_main_font_color"
+            android:includeFontPadding="true"
+            android:layout_marginStart="10dp"/>
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="26dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/add_airble_back"
+            android:rotation="180"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

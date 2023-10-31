@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="._1_splash.SplashActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/home_option_rename_block_1"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/service_title_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이용약관"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:background="@color/app_main_font_color"
+            android:padding="1dp">
+
+            <TextView
+                android:id="@+id/service_content_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:text="내용"
+                android:textColor="@color/app_main_font_color"
+                android:textSize="15sp" />
+
+        </ScrollView>
+
+        <CheckBox
+            android:id="@+id/service_CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="위의 이용약관에 동의합니다."
+            android:textSize="15dp"
+            android:textColor="@color/app_main_font_color"
+            android:layout_gravity="start"
+            android:checked="false"
+            android:enabled="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/privacy_policy_title_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="개인정보 처리 방침"
+            android:textColor="@color/app_main_font_color"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:background="@color/app_main_font_color"
+            android:padding="1dp">
+
+            <TextView
+                android:id="@+id/privacy_policy_content_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="내용"
+                android:textColor="@color/app_main_font_color"
+                android:textSize="15sp"
+                android:background="#FFF"/>
+
+        </ScrollView>
+
+        <CheckBox
+            android:id="@+id/privacy_policy_CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="위의 개인정보 처리 방침에 동의합니다."
+            android:textSize="15dp"
+            android:textColor="@color/app_main_font_color"
+            android:layout_gravity="start"
+            android:checked="false"
+            android:enabled="true"
+            android:layout_marginTop="5dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <LinearLayout
+            android:id="@+id/splash_join_cancel_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/splash_join_cancel_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="취소"
+                android:textSize="17dp"
+                android:textColor="#FA4949"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/splash_join_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/home_option_rename_block_3"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/splash_join_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가입하기"
+                android:textSize="17dp"
+                android:textColor="@color/app_main_font_color"
+                android:fontFamily="@font/gothic_a1_500_medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

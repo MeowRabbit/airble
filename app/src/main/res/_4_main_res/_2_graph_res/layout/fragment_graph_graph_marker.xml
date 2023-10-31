@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="._4_main.MainActivity"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:ignore="Overdraw"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/main_graph_graph_marker_status_TextView"
+        android:layout_width="46.75dp"
+        android:layout_height="12.75dp"
+        android:text="보통"
+        android:textSize="10dp"
+        android:textColor="#FFF"
+        android:fontFamily="@font/gothic_a1_500_medium"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:background="@drawable/status_soso_block"
+        tools:ignore="SmallSp" />
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="18dp"
+        android:orientation="horizontal"
+        android:gravity="bottom|center_horizontal"
+        android:layout_marginTop="-3dp"
+        android:layout_marginBottom="1dp">
+
+        <stm.airble._0_public.CustomTextOutLineView
+            xmlns:textoutline="http://schemas.android.com/apk/res/stm.airble"
+            android:id="@+id/main_graph_graph_marker_value_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="0.21\n"
+            android:textSize="15dp"
+            android:textColor="@color/status_soso_color"
+            android:fontFamily="@font/gothic_a1_700_bold"
+            android:includeFontPadding="true"
+            android:gravity="bottom|end"
+            android:paddingEnd="2dp"
+            android:lineSpacingExtra="-17dp"
+            tools:ignore="RtlSymmetry"
+            textoutline:textStroke="true"
+            textoutline:textStrokeColor="#FFF"
+            textoutline:textStrokeWidth="5.0" />
+
+        <stm.airble._0_public.CustomTextOutLineView
+            xmlns:textoutline="http://schemas.android.com/apk/res/stm.airble"
+            android:id="@+id/main_graph_graph_marker_unit_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="㎎/㎥\n"
+            android:textSize="10dp"
+            android:textColor="@color/status_soso_color"
+            android:fontFamily="@font/ubuntu_regular"
+            android:includeFontPadding="true"
+            android:gravity="bottom|start"
+            android:paddingStart="2dp"
+            android:lineSpacingExtra="-11dp"
+            tools:ignore="RtlSymmetry,SmallSp"
+            textoutline:textStroke="true"
+            textoutline:textStrokeColor="#FFF"
+            textoutline:textStrokeWidth="5.0" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/main_graph_graph_marker_point_View"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:background="@drawable/marker_status_soso_point"/>
+
+</LinearLayout>
