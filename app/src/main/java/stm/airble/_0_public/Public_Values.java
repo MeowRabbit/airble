@@ -185,16 +185,6 @@ public class Public_Values {
         APP_Shared_Preferences_Editor.commit();
     }
 
-    // 기기를 추가 할 때
-    public static boolean Add_Airble(String Airble_MAC, String Airble_NickName){
-        try{
-            APP_Shared_Preferences_Editor.commit();
-
-            return true;
-        }catch (Exception e){
-            return false;
-        }
-    }
 
     // 옵션에서 유저 정보 설정할 때
     public static boolean Setting_User(String email, String nick_name){
@@ -212,111 +202,6 @@ public class Public_Values {
         }
 
     }
-
-    // 리셋 Airble 기기 리스트들
-    public static void Reset_Airble_Model_Array(Context context){
-//        Loading_ProgressDialog.Start_Loading(context);
-        try{
-            String server_url = Server_Domain + "airble_test?num=42&email=" + User_Email;
-            URL url = new URL(server_url);
-            new Reset_Airble_HttpConnection().execute(url);
-        }catch (Exception e){
-//            Loading_ProgressDialog.Stop_Loading();
-        }
-    }
-
-    //서버에 연결하는 코딩
-    private static class Reset_Airble_HttpConnection extends AsyncTask<URL, Integer, String> {
-
-        @Override
-        protected String doInBackground(URL... urls) {
-            String data = "";
-            if (urls.length == 0) {
-                return " URL is empty";
-            }
-            try {
-                GET_RequestHttpURLConnection connection = new GET_RequestHttpURLConnection();
-                data = connection.request(urls[0]);
-            } catch (Exception e) {
-                data = e.getMessage();
-            }
-
-            return data;
-        }
-
-        @Override
-        protected void onPostExecute(String data) {
-            super.onPostExecute(data);
-            if (data != null) { //연결성공
-                Log.d("Sans", "data = " + data);
-                String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
-                //String code = data;
-                switch (code){
-                    // 유저 로그인
-                    case "S42":
-                    {
-                        APP_Airble_Model_Array.clear();
-
-                        String values[] = data.split(",,");
-                        for(int i = 1; i< values.length; i++){
-                            String value[] = values[i].split(",");
-
-                            Airble_Model airble = new Airble_Model();
-                            airble.setMAC_Address(value[0]);
-                            if(Integer.parseInt(value[1]) == 1){
-                                airble.setOwner(true);
-                            }else{
-                                airble.setOwner(false);
-                            }
-                            airble.setSSID(value[3]);
-                            airble.setNick_Name(value[4]);
-
-                            APP_Airble_Model_Array.add(airble);
-                        }
-                        device_refresh_bool = false;
-
-//                        Loading_ProgressDialog.Stop_Loading();
-                        switch (Fragment_Page){
-                            case HOME_FRAGMENT:
-//                                Loading_ProgressDialog.Stop_Loading();
-                                ((MainActivity)MainActivity.Main_Context).Change_Fragment_1_Home();
-                                break;
-
-                            case SETTINGS_FRAGMENT:
-                                ((MainActivity)MainActivity.Main_Context).airble_remove_bool = false;
-                                ((MainActivity)MainActivity.Main_Context).Change_Fragment_5_Setting();
-
-                                break;
-                        }
-                    }
-                    break;
-
-                    case "F42":{
-
-                    }
-                    break;
-
-                    case "E42":
-                    {
-                        // 서버 오류
-//                        Loading_ProgressDialog.Stop_Loading();
-                        Toast.makeText(SplashActivity.Splash_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
-                    }
-                    break;
-
-                    default:{
-//                        Loading_ProgressDialog.Stop_Loading();
-                    }
-
-                }
-
-            } else {  //연결실패
-                Log.d("Sans", "실패 ");
-//                Loading_ProgressDialog.Stop_Loading();
-            }
-        }
-    }
-
 
     // 앱 종료 관련
     public static final int CLOSE_APP = 1;
@@ -339,28 +224,6 @@ public class Public_Values {
             }
         }
     };
-
-    /**
-     * 로딩 관련
-     */
-    /*
-    private static Loading_ProgressDialog loading_progressDialog;
-    public static void Start_Loading(Context context){
-        loading_progressDialog = new Loading_ProgressDialog(context);
-        loading_progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        loading_progressDialog.setCancelable(false);
-        loading_progressDialog.show();
-    }
-
-    public static void Stop_Loading(){
-        try{
-            loading_progressDialog.cancel();
-        }catch (Exception e){
-
-        }
-    }
-
-     */
 
     /**
      * 그래프 페이지 관련

@@ -63,6 +63,9 @@
         <activity android:name="._3_registration.RegistrationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="._3_registration.viewpager2.dialog.Add_End_Dialog_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat.Custom"/>
         <activity android:name="._3_registration.viewpager2.dialog.Shared_Dialog_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AlertDialog.AppCompat.Custom"/>

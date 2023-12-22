@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import stm.airble.R;
 import stm.airble._5_add_airble.AddAirbleActivity;
@@ -15,7 +16,9 @@ import stm.airble._5_add_airble.AddAirbleActivity;
 public class ViewHolderPage_2 extends Fragment {
 
     TextView add_airble_page_2_TextView_1, add_airble_page_2_TextView_2, add_airble_page_2_TextView_3;
+    SwipeRefreshLayout add_airble_page_2_SwipeRefreshLayout;
     RecyclerView add_airble_page_2_RecyclerView;
+    View add_airble_Page_2_RecyclerView_Cover_View;
 
 
     @Override
@@ -27,10 +30,13 @@ public class ViewHolderPage_2 extends Fragment {
         add_airble_page_2_TextView_1 = rootView.findViewById(R.id.add_airble_page_2_TextView_1);
         add_airble_page_2_TextView_2 = rootView.findViewById(R.id.add_airble_page_2_TextView_2);
         add_airble_page_2_TextView_3 = rootView.findViewById(R.id.add_airble_page_2_TextView_3);
+        add_airble_page_2_SwipeRefreshLayout = rootView.findViewById(R.id.add_airble_page_2_SwipeRefreshLayout);
         add_airble_page_2_RecyclerView = rootView.findViewById(R.id.add_airble_page_2_RecyclerView);
+        add_airble_Page_2_RecyclerView_Cover_View = rootView.findViewById(R.id.add_airble_Page_2_RecyclerView_Cover_View);
 
+        ((AddAirbleActivity)AddAirbleActivity.add_airble_context).Page2_router_SwipeRefreshLayout = add_airble_page_2_SwipeRefreshLayout;
         ((AddAirbleActivity)AddAirbleActivity.add_airble_context).Page2_router_RecyclerView = add_airble_page_2_RecyclerView;
-
+        ((AddAirbleActivity)AddAirbleActivity.add_airble_context).Page2_router_RecyclerView_Cover = add_airble_Page_2_RecyclerView_Cover_View;
         ((AddAirbleActivity)AddAirbleActivity.add_airble_context).Page2_Setting();
 
         return rootView;

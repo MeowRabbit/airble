@@ -11,8 +11,8 @@ android {
         applicationId = "stm.airble"
         minSdk = 26
         targetSdk = 34
-        versionCode = 11
-        versionName = "0.9.12"
+        versionCode = 12
+        versionName = "0.9.14"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -80,4 +80,7 @@ dependencies {
     implementation ("com.google.firebase:firebase-analytics")
     implementation ("com.google.firebase:firebase-auth")
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
+
+    // SwipeRefreshLayout
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

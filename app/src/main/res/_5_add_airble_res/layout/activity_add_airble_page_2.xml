@@ -59,22 +59,37 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/add_airble_page_2_SwipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="75dp"
-        android:layout_marginBottom="105dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_marginBottom="105dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/add_airble_page_2_RecyclerView"
-            android:layout_width="295dp"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/add_airble_page_1_connect_device_block"
-            android:paddingTop="13dp"
-            android:paddingBottom="13dp"/>
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/add_airble_page_2_RecyclerView"
+                android:layout_width="295dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/add_airble_page_1_connect_device_block"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"/>
+
+            <View
+                android:id="@+id/add_airble_Page_2_RecyclerView_Cover_View"
+                android:layout_width="295dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/add_airble_page_1_connect_device_block"
+                android:backgroundTint="#50000000"/>
+
+        </RelativeLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

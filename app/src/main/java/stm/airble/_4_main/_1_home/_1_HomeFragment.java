@@ -50,6 +50,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import stm.airble.R;
+import stm.airble._4_main._5_setting._5_SettingsFragment;
 import stm.airble._5_add_airble.AddAirbleActivity;
 import stm.airble._4_main.MainActivity;
 import stm.airble._4_main._1_home.viewpager2.Main_Home_ViewPagerAdapter;
@@ -154,7 +155,15 @@ public class _1_HomeFragment extends Fragment {
             device_add_launcher = registerForActivityResult(
                     new ActivityResultContracts.StartActivityForResult(),
                     result -> {
-                        Refresh_Home_Fragment();
+                        Main_Loading.Start_Loading();
+                        try{
+                            String server_url = Server_Domain + "airble_test?num=42&email=" + User_Email;
+                            URL url = new URL(server_url);
+                            new Get_Airble_Models_Status_HttpConnection().execute(url);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            Main_Get_Airble_Models_Status_Bool = false;
+                        }
                     });
 
             device_place_ActivityResultLauncher = registerForActivityResult(
@@ -595,86 +604,6 @@ public class _1_HomeFragment extends Fragment {
                 }
             }
 
-            class Get_Airble_Models_Status_HttpConnection extends AsyncTask<URL, Integer, String> {
-                @Override
-                protected String doInBackground(URL... urls) {
-                    String data = "";
-                    if (urls.length == 0) {
-                        return " URL is empty";
-                    }
-                    try {
-                        GET_RequestHttpURLConnection connection = new GET_RequestHttpURLConnection();
-                        data = connection.request(urls[0]);
-                    } catch (Exception e) {
-                        data = e.getMessage();
-                    }
-
-                    return data;
-                }
-
-                @Override
-                protected void onPostExecute(String data) {
-                    super.onPostExecute(data);
-                    if (data != null) { //연결성공
-                        Log.d("Sans", "Get_Airble_Models_Status_HttpConnection data = " + data);
-                        String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
-                        //String code = data;
-                        switch (code){
-                            // Airble 현재 데이터 가져오기
-                            case "S42":
-                            {
-                                try{
-                                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                                    String values[] = data.split(",,");
-                                    for(int i = 1; i< values.length; i++){
-                                        String value[] = values[i].split(",");
-                                        if(Integer.parseInt(value[1]) == 1){
-                                            APP_Airble_Model_Array.get(i-1).setOwner(true);
-                                        }else{
-                                            APP_Airble_Model_Array.get(i-1).setOwner(false);
-                                        }
-                                        APP_Airble_Model_Array.get(i-1).setSSID(value[3]);
-                                        APP_Airble_Model_Array.get(i-1).setNick_Name(value[4]);
-                                        APP_Airble_Model_Array.get(i-1).setUpdate_date(LocalDateTime.parse(value[5].split("\\.")[0], dateTimeFormatter));
-                                    }
-
-                                    Main_Get_Airble_Models_Status_Bool = false;
-                                    if(select_airble_num >= APP_Airble_Model_Array.size()){
-                                        select_airble_num = APP_Airble_Model_Array.size() - 1;
-                                    }
-                                    Refresh_Home_Fragment();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                            break;
-
-                            case "F42":{
-                                if(APP_Airble_Model_Array.size() == 0){
-                                    Toast.makeText(Main_Context, "기기 없서요", Toast.LENGTH_SHORT).show();
-
-                                }else{
-                                    Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                            case "E42":{
-                                // 서버 오류
-                                Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-
-                            default:{
-                                Toast.makeText(Main_Context, "에러코드 : " + code, Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-
-                    } else {  //연결실패
-                        Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
         });
         device_Data_Observable = Observable.interval(1, TimeUnit.SECONDS);
 
@@ -684,6 +613,87 @@ public class _1_HomeFragment extends Fragment {
                 device_Data_Mutable.postValue(aLong);
             }
         });
+    }
+
+    class Get_Airble_Models_Status_HttpConnection extends AsyncTask<URL, Integer, String> {
+        @Override
+        protected String doInBackground(URL... urls) {
+            String data = "";
+            if (urls.length == 0) {
+                return " URL is empty";
+            }
+            try {
+                GET_RequestHttpURLConnection connection = new GET_RequestHttpURLConnection();
+                data = connection.request(urls[0]);
+            } catch (Exception e) {
+                data = e.getMessage();
+            }
+
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String data) {
+            super.onPostExecute(data);
+            if (data != null) { //연결성공
+                Log.d("Sans", "Get_Airble_Models_Status_HttpConnection data = " + data);
+                String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
+                //String code = data;
+                switch (code){
+                    // Airble 현재 데이터 가져오기
+                    case "S42":
+                    {
+                        try{
+                            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            String values[] = data.split(",,");
+                            for(int i = 1; i< values.length; i++){
+                                String value[] = values[i].split(",");
+                                if(Integer.parseInt(value[1]) == 1){
+                                    APP_Airble_Model_Array.get(i-1).setOwner(true);
+                                }else{
+                                    APP_Airble_Model_Array.get(i-1).setOwner(false);
+                                }
+                                APP_Airble_Model_Array.get(i-1).setSSID(value[3]);
+                                APP_Airble_Model_Array.get(i-1).setNick_Name(value[4]);
+                                APP_Airble_Model_Array.get(i-1).setUpdate_date(LocalDateTime.parse(value[5].split("\\.")[0], dateTimeFormatter));
+                            }
+
+                            Main_Get_Airble_Models_Status_Bool = false;
+                            if(select_airble_num >= APP_Airble_Model_Array.size()){
+                                select_airble_num = APP_Airble_Model_Array.size() - 1;
+                            }
+                            Refresh_Home_Fragment();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    break;
+
+                    case "F42":{
+                        if(APP_Airble_Model_Array.size() == 0){
+                            Toast.makeText(Main_Context, "기기 없서요", Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    case "E42":{
+                        // 서버 오류
+                        Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    default:{
+                        Toast.makeText(Main_Context, "에러코드 : " + code, Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+            } else {  //연결실패
+                Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public void Stop_Device_Data_LiveData(){

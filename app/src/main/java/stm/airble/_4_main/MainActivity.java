@@ -385,6 +385,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Sans", "Main onResume");
         super.onResume();
         Start_Get_Device_Data();
+        Close_App_bool = false;
     }
 
     @Override

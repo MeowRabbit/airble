@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ import stm.airble._0_public.Loading_ProgressDialog;
 public class ViewHolderPage_2 extends Fragment {
 
     LinearLayout shared_LinearLayout;
+    LinearLayout shared_inner_LinearLayout;
     public TextView shared_TextView, shared_key_TextView;
     LinearLayout shared_list_LinearLayout;
     public RecyclerView shared_RecyclerView;
@@ -51,6 +53,7 @@ public class ViewHolderPage_2 extends Fragment {
 
         // 아이디 맞춰주기
         shared_LinearLayout = rootView.findViewById(R.id.settings_airble_shared_LinearLayout);
+        shared_inner_LinearLayout = rootView.findViewById(R.id.settings_airble_shared_inner_LinearLayout);
         shared_TextView = rootView.findViewById(R.id.settings_airble_shared_TextView);
         shared_key_TextView = rootView.findViewById(R.id.settings_airble_shared_key_TextView);
         shared_list_LinearLayout = rootView.findViewById(R.id.settings_airble_shared_list_LinearLayout);
@@ -104,6 +107,8 @@ public class ViewHolderPage_2 extends Fragment {
             @Override
             public boolean onLongClick(View v) {
                 if(APP_Airble_Model_Array.get(((MainActivity)MainActivity.Main_Context).select_setting_airble_num).isOwner() && !shared_key_TextView.getText().toString().trim().equals("")) {
+                    ((_51_SettingsAirbleFragment)_51_SettingsAirbleFragment.Setting_Airble_Context).start_shared_popup_bool = true;
+                    ((_51_SettingsAirbleFragment)_51_SettingsAirbleFragment.Setting_Airble_Context).running_popup_bool = true;
                     Intent intent = new Intent(MainActivity.Main_Context, Shared_Dialog_Activity.class);
                     shared_ActivityResultLauncher.launch(intent);
                 }
@@ -135,8 +140,12 @@ public class ViewHolderPage_2 extends Fragment {
 
         }else{
             shared_list_LinearLayout.setVisibility(View.GONE);
+            shared_inner_LinearLayout.setOrientation(LinearLayout.VERTICAL);
+
             shared_TextView.setText("공유해준 사람");
+
             shared_key_TextView.setText(((MainActivity)MainActivity.Main_Context)._51_Settings_Airble_Fragment.mater_email.trim());
+            shared_key_TextView.setGravity(Gravity.START);
         }
 
         return rootView;

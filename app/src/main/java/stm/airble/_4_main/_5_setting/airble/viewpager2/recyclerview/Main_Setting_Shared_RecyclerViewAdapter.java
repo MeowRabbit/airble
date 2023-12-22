@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import stm.airble.R;
 import stm.airble._4_main.MainActivity;
+import stm.airble._4_main._5_setting.airble._51_SettingsAirbleFragment;
 import stm.airble._4_main._5_setting.dialog.Shared_Remove_Dialog_Activity;
 
 public class Main_Setting_Shared_RecyclerViewAdapter extends RecyclerView.Adapter<Main_Setting_Shared_RecyclerViewAdapter.ViewHolder> {
@@ -64,6 +65,8 @@ public class Main_Setting_Shared_RecyclerViewAdapter extends RecyclerView.Adapte
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.Main_Context, Shared_Remove_Dialog_Activity.class);
                 intent.putExtra("shared_email", item);
+                ((_51_SettingsAirbleFragment)_51_SettingsAirbleFragment.Setting_Airble_Context).start_shared_popup_bool = true;
+                ((_51_SettingsAirbleFragment)_51_SettingsAirbleFragment.Setting_Airble_Context).running_popup_bool = true;
                 ((MainActivity)MainActivity.Main_Context)._51_Settings_Airble_Fragment.drawer_adapter.shared_page.shared_remove_ActivityResultLauncher.launch(intent);
                 Log.d("Sans", item);
             }

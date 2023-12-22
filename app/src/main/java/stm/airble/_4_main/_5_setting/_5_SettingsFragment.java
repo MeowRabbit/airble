@@ -161,8 +161,15 @@ public class _5_SettingsFragment extends Fragment {
             add_launcher = registerForActivityResult(
                     new ActivityResultContracts.StartActivityForResult(),
                     result -> {
-                        Reset_Airble_Model_Array(MainActivity.Main_Context);
-
+                        Main_Loading.Start_Loading();
+                        try{
+                            String server_url = Server_Domain + "airble_test?num=42&email=" + User_Email;
+                            URL url = new URL(server_url);
+                            new Get_Airble_Models_Status_HttpConnection().execute(url);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            Main_Get_Airble_Models_Status_Bool = false;
+                        }
                     });
 
             alarm_ActivityResultLauncher = registerForActivityResult(
@@ -219,64 +226,67 @@ public class _5_SettingsFragment extends Fragment {
 
     public void Setting_Device_ViewPager(){
         Log.d("Sans", "뷰 페이져 셋팅 발동");
-        settings_devices_ViewPager2_adapter = new Main_Setting_ViewPagerAdapter(APP_Airble_Model_Array);
-        settings_devices_ViewPager2.setAdapter(settings_devices_ViewPager2_adapter);
+        if(APP_Airble_Model_Array.size() > 0 ){
+            settings_devices_ViewPager2_adapter = new Main_Setting_ViewPagerAdapter(APP_Airble_Model_Array);
+            settings_devices_ViewPager2.setAdapter(settings_devices_ViewPager2_adapter);
 
-        if(APP_Airble_Model_Array.size() == 1){
-            settings_devices_ViewPager2.setOffscreenPageLimit(1);
-        }else{
-            settings_devices_ViewPager2.setOffscreenPageLimit(APP_Airble_Model_Array.size() + 1);
+            if(APP_Airble_Model_Array.size() == 1){
+                settings_devices_ViewPager2.setOffscreenPageLimit(1);
+            }else{
+                settings_devices_ViewPager2.setOffscreenPageLimit(APP_Airble_Model_Array.size() + 1);
+            }
+
+            if(APP_Airble_Model_Array.size() != 1){
+                settings_devices_ViewPager2.setCurrentItem(select_setting_airble_viewpager_page_num,false);
+            }
+
+            //settings_devices_ViewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
+
+            Display display = _5_SettingsFragment.Settings_Context.getActivity().getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            display.getRealSize(size); // or getSize(size)
+            int width = size.x;
+            int ViewPager_Side_Margin = (width - (int)(getResources().getDimension(R.dimen.public_10dp) * 17)) / 2;
+            Log.d("Sans", "width = " + width);
+
+            CompositePageTransformer device_transformer  = new CompositePageTransformer();
+            device_transformer.addTransformer(new ViewPager2.PageTransformer() {
+                @Override
+                public void transformPage(@NonNull View page, float position) {
+                    float v = 1 - Math.abs(position);
+                    float scale = 0.8f + (v * 0.3f);
+                    if(scale < 0.8){
+                        page.setScaleY(0.8f);
+                        page.setScaleX(0.8f);
+                    }else{
+                        page.setScaleY(scale);
+                        page.setScaleX(scale);
+                    }
+                    page.setTranslationX(-(ViewPager_Side_Margin * 2) * (position));
+
+                    LinearLayout viewpager2_LinearLayout = page.findViewById(R.id.settings_ViewPager2_device_inside_LinearLayout);
+                    TextView viewpager2_TextView = page.findViewById(R.id.settings_ViewPager2_device_TextView);
+                    if( v > 0 ){
+                        viewpager2_LinearLayout.setAlpha(0.41f + (v * 0.59f));
+                        viewpager2_TextView.setTextColor(Color.rgb((int)(0xff - (v * 0xb6)),(int)(0xff - (v * 0x71)), (int)(0xff - (v * 0x5))));
+                    }else{
+                        viewpager2_LinearLayout.setAlpha(0.41f);
+                        viewpager2_TextView.setTextColor(Color.rgb(0xFF,0xFF, 0xFF));
+                    }
+                }
+            });
+            settings_devices_ViewPager2.setPageTransformer(device_transformer);
+
+            settings_devices_ViewPager2.addItemDecoration(new RecyclerView.ItemDecoration() {
+                @Override
+                public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                    super.getItemOffsets(outRect, view, parent, state);
+                    outRect.right = ViewPager_Side_Margin;
+                    outRect.left = ViewPager_Side_Margin;
+                }
+            });
         }
 
-        if(APP_Airble_Model_Array.size() != 1){
-            settings_devices_ViewPager2.setCurrentItem(select_setting_airble_viewpager_page_num,false);
-        }
-
-        //settings_devices_ViewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
-
-        Display display = _5_SettingsFragment.Settings_Context.getActivity().getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getRealSize(size); // or getSize(size)
-        int width = size.x;
-        int ViewPager_Side_Margin = (width - (int)(getResources().getDimension(R.dimen.public_10dp) * 17)) / 2;
-        Log.d("Sans", "width = " + width);
-
-        CompositePageTransformer device_transformer  = new CompositePageTransformer();
-        device_transformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float v = 1 - Math.abs(position);
-                float scale = 0.8f + (v * 0.3f);
-                if(scale < 0.8){
-                    page.setScaleY(0.8f);
-                    page.setScaleX(0.8f);
-                }else{
-                    page.setScaleY(scale);
-                    page.setScaleX(scale);
-                }
-                page.setTranslationX(-(ViewPager_Side_Margin * 2) * (position));
-
-                LinearLayout viewpager2_LinearLayout = page.findViewById(R.id.settings_ViewPager2_device_inside_LinearLayout);
-                TextView viewpager2_TextView = page.findViewById(R.id.settings_ViewPager2_device_TextView);
-                if( v > 0 ){
-                    viewpager2_LinearLayout.setAlpha(0.41f + (v * 0.59f));
-                    viewpager2_TextView.setTextColor(Color.rgb((int)(0xff - (v * 0xb6)),(int)(0xff - (v * 0x71)), (int)(0xff - (v * 0x5))));
-                }else{
-                    viewpager2_LinearLayout.setAlpha(0.41f);
-                    viewpager2_TextView.setTextColor(Color.rgb(0xFF,0xFF, 0xFF));
-                }
-            }
-        });
-        settings_devices_ViewPager2.setPageTransformer(device_transformer);
-
-        settings_devices_ViewPager2.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-                super.getItemOffsets(outRect, view, parent, state);
-                outRect.right = ViewPager_Side_Margin;
-                outRect.left = ViewPager_Side_Margin;
-            }
-        });
     }
 
     public void Refresh_Setting_Fragment(){
@@ -322,82 +332,6 @@ public class _5_SettingsFragment extends Fragment {
 //                    device_ViewPager2.postInvalidate();
                 }
             }
-
-            class Get_Airble_Models_Status_HttpConnection extends AsyncTask<URL, Integer, String> {
-                @Override
-                protected String doInBackground(URL... urls) {
-                    String data = "";
-                    if (urls.length == 0) {
-                        return " URL is empty";
-                    }
-                    try {
-                        GET_RequestHttpURLConnection connection = new GET_RequestHttpURLConnection();
-                        data = connection.request(urls[0]);
-                    } catch (Exception e) {
-                        data = e.getMessage();
-                    }
-
-                    return data;
-                }
-
-                @Override
-                protected void onPostExecute(String data) {
-                    super.onPostExecute(data);
-                    if (data != null) { //연결성공
-                        Log.d("Sans", "Get_Airble_Models_Status_HttpConnection data = " + data);
-                        String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
-                        //String code = data;
-                        switch (code){
-                            // Airble 현재 데이터 가져오기
-                            case "S42":
-                            {
-                                try{
-                                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                                    String values[] = data.split(",,");
-                                    for(int i = 1; i< values.length; i++){
-                                        String value[] = values[i].split(",");
-                                        if(Integer.parseInt(value[1]) == 1){
-                                            APP_Airble_Model_Array.get(i-1).setOwner(true);
-                                        }else{
-                                            APP_Airble_Model_Array.get(i-1).setOwner(false);
-                                        }
-                                        APP_Airble_Model_Array.get(i-1).setSSID(value[3]);
-                                        APP_Airble_Model_Array.get(i-1).setNick_Name(value[4]);
-                                        APP_Airble_Model_Array.get(i-1).setUpdate_date(LocalDateTime.parse(value[5].split("\\.")[0], dateTimeFormatter));
-                                    }
-
-                                    Main_Get_Airble_Models_Status_Bool = false;
-                                    if(select_airble_num >= APP_Airble_Model_Array.size()){
-                                        select_airble_num = APP_Airble_Model_Array.size() - 1;
-                                    }
-                                    Refresh_Setting_Fragment();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                            break;
-
-                            case "F42":
-                            case "E42":
-                            {
-                                // 서버 오류
-                                Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-
-                            default:
-                            {
-                                Toast.makeText(Main_Context, "에러코드 : " + code, Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-
-                    } else {  //연결실패
-                        Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
         });
         device_list_check_Observable = Observable.interval(1, TimeUnit.SECONDS);
 
@@ -407,6 +341,82 @@ public class _5_SettingsFragment extends Fragment {
                 device_list_check_Mutable.postValue(aLong);
             }
         });
+    }
+
+    class Get_Airble_Models_Status_HttpConnection extends AsyncTask<URL, Integer, String> {
+        @Override
+        protected String doInBackground(URL... urls) {
+            String data = "";
+            if (urls.length == 0) {
+                return " URL is empty";
+            }
+            try {
+                GET_RequestHttpURLConnection connection = new GET_RequestHttpURLConnection();
+                data = connection.request(urls[0]);
+            } catch (Exception e) {
+                data = e.getMessage();
+            }
+
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String data) {
+            super.onPostExecute(data);
+            if (data != null) { //연결성공
+                Log.d("Sans", "Get_Airble_Models_Status_HttpConnection data = " + data);
+                String code = data.split("\\[\\]\\[")[1].split("\\]")[0].trim();
+                //String code = data;
+                switch (code){
+                    // Airble 현재 데이터 가져오기
+                    case "S42":
+                    {
+                        try{
+                            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            String values[] = data.split(",,");
+                            for(int i = 1; i< values.length; i++){
+                                String value[] = values[i].split(",");
+                                if(Integer.parseInt(value[1]) == 1){
+                                    APP_Airble_Model_Array.get(i-1).setOwner(true);
+                                }else{
+                                    APP_Airble_Model_Array.get(i-1).setOwner(false);
+                                }
+                                APP_Airble_Model_Array.get(i-1).setSSID(value[3]);
+                                APP_Airble_Model_Array.get(i-1).setNick_Name(value[4]);
+                                APP_Airble_Model_Array.get(i-1).setUpdate_date(LocalDateTime.parse(value[5].split("\\.")[0], dateTimeFormatter));
+                            }
+
+                            Main_Get_Airble_Models_Status_Bool = false;
+                            if(select_airble_num >= APP_Airble_Model_Array.size()){
+                                select_airble_num = APP_Airble_Model_Array.size() - 1;
+                            }
+                            Refresh_Setting_Fragment();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    break;
+
+                    case "F42":
+                    case "E42":
+                    {
+                        // 서버 오류
+                        Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    default:
+                    {
+                        Toast.makeText(Main_Context, "에러코드 : " + code, Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+            } else {  //연결실패
+                Toast.makeText(Main_Context, "서버와 연결상태가 좋지않습니다. 잠시후에 다시 시도해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public void Stop_Device_List_Check_LiveData(){

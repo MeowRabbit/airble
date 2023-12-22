@@ -134,6 +134,40 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/registration_next_LinearLayout"
+        android:layout_width="123dp"
+        android:layout_height="26dp"
+        android:background="@drawable/add_airble_block"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/registration_next_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="다음"
+            android:textSize="14dp"
+            android:fontFamily="@font/gothic_a1_700_bold"
+            android:textColor="@color/app_main_font_color"
+            android:includeFontPadding="true"
+            android:layout_marginStart="10dp"/>
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="26dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/add_airble_back"
+            android:rotation="180"/>
+
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
