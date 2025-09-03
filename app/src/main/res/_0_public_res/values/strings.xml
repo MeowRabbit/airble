@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Airble</string>
-    <string name="google_login_api_key">AIzaSyDOhTJQYtfRuPvfj6HwpafICb2qNiEjNpM</string>
+    <string name="google_login_api_key">구글키</string>
 
     <string-array name="address_division_1">
         <item>1_강원특별자치도</item>
